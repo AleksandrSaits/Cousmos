@@ -3,95 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Coffee</title>
+    <title>Fresh Coffee — Лучший кофе в городе</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6F4E37;
+            --accent: #D4A373;
+            --light: #FEFAE0;
+            --dark: #2C1810;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
         
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(111,78,55,0.9), rgba(44,24,16,0.95)),
+                        url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
+            color: var(--white);
+            padding: 20px;
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.3rem; margin-bottom: 30px; }
+        .hero-content { max-width: 700px; animation: fadeInUp 0.8s ease; }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
         .btn {
-            background: #d4a373;
-            color: white;
-            padding: 15px 40px;
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 16px 45px;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(212,163,115,0.4);
         }
-        .btn:hover { background: #c49261; }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212,163,115,0.6);
+        }
         
-        .menu { padding: 80px 20px; text-align: center; }
-        .menu h2 { font-size: 2.5rem; margin-bottom: 40px; }
+        /* Menu */
+        .section { padding: 100px 20px; }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+        
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .menu-item {
-            background: #fefae0;
-            padding: 30px;
-            border-radius: 10px;
+        .menu-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
-        .menu-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .menu-item h3 { margin: 15px 0 10px; }
-        .price { color: #d4a373; font-weight: bold; font-size: 1.2rem; }
+        .menu-card:hover { transform: translateY(-10px); }
+        .menu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .menu-card-content { padding: 25px; }
+        .menu-card h3 { font-size: 1.4rem; margin-bottom: 8px; }
+        .menu-card p { color: #666; margin-bottom: 12px; }
+        .price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
         
-        .contacts { background: #333; color: white; padding: 60px 20px; text-align: center; }
-        .contacts h2 { margin-bottom: 20px; }
+        /* About */
+        .about {
+            background: var(--light);
+            text-align: center;
+        }
+        .about p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
         
+        /* Contacts */
+        .contacts {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
+        .contacts p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 2.8rem; }
+            .section { padding: 70px 20px; }
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <div>
+        <div class="hero-content">
             <h1>Fresh Coffee</h1>
-            <p>Лучший кофе в городе</p>
-            <a href="#" class="btn">Заказать</a>
+            <p>Натуральный кофе из свежих зёрен. Уютная атмосфера и идеальный вкус в каждой чашке.</p>
+            <a href="#menu" class="btn">Смотреть меню</a>
         </div>
     </section>
     
-    <section class="menu">
-        <h2>Наше меню</h2>
+    <section id="menu" class="section">
+        <h2 class="section-title">Наше меню</h2>
         <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400" alt="Капучино">
-                <h3>Капучино</h3>
-                <p class="price">250 ₽</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600" alt="Капучино">
+                <div class="menu-card-content">
+                    <h3>Капучино</h3>
+                    <p>Классический итальянский кофе с воздушной пенкой</p>
+                    <span class="price">250 ₽</span>
+                </div>
             </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=400" alt="Латте">
-                <h3>Латте</h3>
-                <p class="price">280 ₽</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600" alt="Латте">
+                <div class="menu-card-content">
+                    <h3>Латте</h3>
+                    <p>Нежный кофе с большим количеством молока</p>
+                    <span class="price">280 ₽</span>
+                </div>
             </div>
-            <div class="menu-item">
-                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400" alt="Эспрессо">
-                <h3>Эспрессо</h3>
-                <p class="price">150 ₽</p>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600" alt="Эспрессо">
+                <div class="menu-card-content">
+                    <h3>Эспрессо</h3>
+                    <p>Крепкий и насыщенный, для настоящих ценителей</p>
+                    <span class="price">150 ₽</span>
+                </div>
             </div>
         </div>
     </section>
     
-    <section class="contacts">
-        <h2>Контакты</h2>
-        <p>📍 ул. Ленина, 10 | 📞 +7 (999) 000-00-00</p>
+    <section class="section about">
+        <h2 class="section-title">О нас</h2>
+        <p>Мы обжариваем зёрна самостоятельно и готовим каждый напиток с любовью. Приходите за идеальным кофе и уютной атмосферой.</p>
+        <a href="#" class="btn">Заказать столик</a>
+    </section>
+    
+    <section class="section contacts">
+        <h2 class="section-title" style="color:white">Контакты</h2>
+        <p>📍 ул. Ленина, 10 &nbsp;|&nbsp; 📞 +7 (999) 000-00-00</p>
+        <p style="margin-top:5px">🕐 Ежедневно 8:00 — 22:00</p>
     </section>
 </body>
 </html>
