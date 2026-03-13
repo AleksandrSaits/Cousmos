@@ -3,157 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Code</title>
+    <title>IRON GYM — Твой путь к силе</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, sans-serif; }
+        body { font-family: system-ui, sans-serif; background: #0a0a0a; color: white; line-height: 1.6; }
         
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 20px 140px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            padding: 20px;
         }
-        .hero h1 { font-size: clamp(2rem, 7vw, 3.5rem); margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; opacity: 0.95; max-width: 600px; margin: 0 auto; }
-        
-        .form-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            max-width: 450px;
-            margin: -60px auto 0;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 10;
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
         }
-        .form-card input {
-            width: 100%;
-            padding: 14px;
-            margin-bottom: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 1rem;
+        .hero p {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 35px;
+            max-width: 600px;
         }
-        .form-card button {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .btn {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
             color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .section { padding: 80px 20px; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
-        
-        .modules { max-width: 800px; margin: 0 auto; display: grid; gap: 20px; }
-        .module {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
-        .module h3 { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-        .module-number {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            width: 28px; height: 28px;
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.9rem; font-weight: 600;
-        }
-        
-        .reviews { background: #f8f9fa; }
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .review {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-        }
-        .review p { font-style: italic; color: #444; margin-bottom: 15px; }
-        .review strong { color: #667eea; }
-        
-        .cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-        .cta-btn {
-            display: inline-block;
-            background: white;
-            color: #764ba2;
-            padding: 14px 45px;
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            margin-top: 20px;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); }
+        
+        /* Section */
+        .section { padding: 80px 20px; }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 50px;
+        }
+        .section-title span {
+            color: #e94560;
+        }
+        
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: #16213e;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #1a1a2e;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #e94560;
+        }
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+        
+        /* Pricing */
+        .pricing { background: #16213e; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .pricing-card {
+            background: #0a0a0a;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid #1a1a2e;
+            transition: all 0.3s;
+        }
+        .pricing-card.featured {
+            border-color: #e94560;
+            transform: scale(1.05);
+        }
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #e94560;
+            margin-bottom: 25px;
+        }
+        .price span {
+            font-size: 1rem;
+            color: #888;
+            font-weight: 400;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .pricing-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #1a1a2e;
+            color: #ccc;
+        }
+        .pricing-card li:before {
+            content: '✓ ';
+            color: #e94560;
+            font-weight: bold;
+        }
+        
+        /* Contacts */
+        .contacts {
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+        }
+        .contacts-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section { padding: 50px 20px; }
+            .pricing-card.featured { transform: scale(1); }
+            .contacts-info { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>Стань разработчиком за 3 месяца</h1>
-        <p>Практический курс по HTML, CSS, JavaScript и React. Портфолио и помощь с трудоустройством.</p>
+        <h1>💪 IRON GYM</h1>
+        <p>Современный тренажёрный зал. Профессиональное оборудование. Тренеры с опытом. Твой результат — наша цель.</p>
+        <a href="#pricing" class="btn">Начать тренировки</a>
     </section>
-    
-    <div class="form-card">
-        <form onsubmit="event.preventDefault(); alert('🎉 Спасибо!');">
-            <input type="text" placeholder="Ваше имя" required>
-            <input type="email" placeholder="Email" required>
-            <button type="submit">Записаться бесплатно</button>
-        </form>
-    </div>
     
     <section class="section">
-        <h2 class="section-title">Программа</h2>
-        <div class="modules">
-            <div class="module">
-                <h3><span class="module-number">1</span>HTML & CSS</h3>
-                <p>Семантика, адаптивная вёрстка, Flexbox, Grid</p>
+        <h2 class="section-title">Наши <span>услуги</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏋️</div>
+                <h3>Тренажёрный зал</h3>
+                <p>Современное оборудование от ведущих производителей. Свободные веса, кардиозона.</p>
             </div>
-            <div class="module">
-                <h3><span class="module-number">2</span>JavaScript</h3>
-                <p>Переменные, функции, DOM, события, асинхронность</p>
+            <div class="service-card">
+                <div class="service-icon">🧘</div>
+                <h3>Групповые программы</h3>
+                <p>Йога, пилатес, зумба, кроссфит. Более 20 направлений для любого уровня.</p>
             </div>
-            <div class="module">
-                <h3><span class="module-number">3</span>React</h3>
-                <p>Компоненты, хуки, состояние, деплой</p>
+            <div class="service-card">
+                <div class="service-icon">🥊</div>
+                <h3>Единоборства</h3>
+                <p>Бокс, ММА, борьба. Индивидуальные и групповые тренировки с тренерами.</p>
             </div>
-        </div>
-    </section>
-    
-    <section class="section reviews">
-        <h2 class="section-title">Отзывы</h2>
-        <div class="reviews-grid">
-            <div class="review">
-                <p>«После курса нашёл работу на 60к. Материал подаётся понятно, много практики»</p>
-                <strong>— Алексей, Frontend-разработчик</strong>
-            </div>
-            <div class="review">
-                <p>«Лучший курс для старта. Поддержка кураторов — топ»</p>
-                <strong>— Мария, Junior React Dev</strong>
-            </div>
-            <div class="review">
-                <p>«Сделал 5 проектов в портфолио ещё до конца курса»</p>
-                <strong>— Дмитрий, Фрилансер</strong>
+            <div class="service-card">
+                <div class="service-icon">🏃</div>
+                <h3>Персональный тренинг</h3>
+                <p>Индивидуальная программа питания и тренировок. Контроль результата.</p>
             </div>
         </div>
     </section>
     
-    <section class="cta">
-        <h2>Готов начать карьеру в IT?</h2>
-        <a href="#" class="cta-btn" onclick="alert('🚀 Переход...')">Записаться на курс</a>
+    <section class="section pricing" id="pricing">
+        <h2 class="section-title">Клубные <span>карты</span></h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Старт</h3>
+                <div class="price">1 900 ₽<span>/мес</span></div>
+                <ul>
+                    <li>Тренажёрный зал</li>
+                    <li>Вводный инструктаж</li>
+                    <li>Душевые и раздевалка</li>
+                    <li>Заморозка 7 дней</li>
+                </ul>
+                <a href="#" class="btn" onclick="alert('✅ Карта выбрана!')">Выбрать</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>🔥 Профи</h3>
+                <div class="price">3 500 ₽<span>/мес</span></div>
+                <ul>
+                    <li>Все зоны клуба</li>
+                    <li>Групповые программы</li>
+                    <li>Гостевой визит</li>
+                    <li>Заморозка 14 дней</li>
+                    <li>Персональная тренировка</li>
+                </ul>
+                <a href="#" class="btn" onclick="alert('✅ Карта выбрана!')">Выбрать</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Год</h3>
+                <div class="price">29 900 ₽<span>/год</span></div>
+                <ul>
+                    <li>Безлимитный доступ</li>
+                    <li>Все групповые</li>
+                    <li>3 персональные тренировки</li>
+                    <li>Заморозка 30 дней</li>
+                    <li>Гостевые визиты (5)</li>
+                </ul>
+                <a href="#" class="btn" onclick="alert('✅ Карта выбрана!')">Выбрать</a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section contacts">
+        <h2 class="section-title">Кон<span>такты</span></h2>
+        <div class="contacts-info">
+            <span>📍 ул. Спортивная, 25</span>
+            <span>📞 +7 (999) 000-00-00</span>
+            <span>🕐 Пн-Вс: 7:00 — 23:00</span>
+            <span>📧 info@irongym.ru</span>
+        </div>
     </section>
 </body>
 </html>
