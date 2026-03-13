@@ -3,112 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fresh Coffee</title>
+    <title>IVAN PHOTO</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: system-ui, sans-serif; line-height: 1.6; color: #2c1810; }
+        body { font-family: system-ui, sans-serif; background: #0a0a0a; color: white; }
         
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #6F4E37 0%, #2C1810 100%);
+        header {
+            min-height: 80vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
             text-align: center;
-            color: white;
             padding: 20px;
+            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 70%);
         }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; margin-bottom: 30px; max-width: 600px; }
-        .btn {
-            background: #D4A373;
-            color: #2C1810;
-            padding: 15px 40px;
+        header h1 {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        header p { color: #888; font-size: 1.1rem; margin-bottom: 30px; }
+        .cta-btn {
+            border: 2px solid #d4a373;
+            color: #d4a373;
+            padding: 12px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
         }
         
-        .section { padding: 80px 20px; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 50px; }
-        
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
+        .gallery {
+            padding: 60px 20px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        .menu-card {
-            background: #FEFAE0;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
-        .menu-card .icon {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, #6F4E37, #D4A373);
-            border-radius: 50%;
-            margin: 0 auto 20px;
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-        }
-        .menu-card h3 { margin-bottom: 10px; }
-        .price { color: #6F4E37; font-weight: 700; font-size: 1.2rem; }
-        
-        .contacts {
-            background: #2C1810;
+            font-size: 3rem;
             color: white;
-            text-align: center;
-            padding: 60px 20px;
+            font-weight: 300;
         }
+        .gallery-item:nth-child(1) { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .gallery-item:nth-child(2) { background: linear-gradient(135deg, #f093fb, #f5576c); }
+        .gallery-item:nth-child(3) { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+        .gallery-item:nth-child(4) { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+        .gallery-item:nth-child(5) { background: linear-gradient(135deg, #fa709a, #fee140); }
+        .gallery-item:nth-child(6) { background: linear-gradient(135deg, #30cfd0, #330867); }
         
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .section { padding: 50px 20px; }
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+            background: #111;
+        }
+        .contact-btn {
+            background: #d4a373;
+            color: #0a0a0a;
+            padding: 14px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div>
-            <h1>☕ Fresh Coffee</h1>
-            <p>Натуральный кофе из свежих зёрен. Уют и идеальный вкус в каждой чашке.</p>
-            <a href="#menu" class="btn">Смотреть меню</a>
+    <header>
+        <h1>IVAN PHOTO</h1>
+        <p>Портретная • Свадебная • Коммерческая съёмка</p>
+        <a href="#gallery" class="cta-btn">Смотреть работы</a>
+    </header>
+    
+    <section id="gallery" class="gallery">
+        <div class="gallery-grid">
+            <div class="gallery-item">👤</div>
+            <div class="gallery-item">💒</div>
+            <div class="gallery-item">✨</div>
+            <div class="gallery-item">🌆</div>
+            <div class="gallery-item">🎨</div>
+            <div class="gallery-item">📷</div>
         </div>
     </section>
     
-    <section id="menu" class="section">
-        <h2 class="section-title">Наше меню</h2>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <div class="icon">☕</div>
-                <h3>Капучино</h3>
-                <p>Классика с воздушной пенкой</p>
-                <span class="price">250 ₽</span>
-            </div>
-            <div class="menu-card">
-                <div class="icon">🥛</div>
-                <h3>Латте</h3>
-                <p>Нежный с большим количеством молока</p>
-                <span class="price">280 ₽</span>
-            </div>
-            <div class="menu-card">
-                <div class="icon">⚡</div>
-                <h3>Эспрессо</h3>
-                <p>Крепкий для настоящих ценителей</p>
-                <span class="price">150 ₽</span>
-            </div>
-        </div>
-    </section>
-    
-    <section class="contacts">
-        <h2 class="section-title">Контакты</h2>
-        <p>📍 ул. Ленина, 10 &nbsp;|&nbsp; 📞 +7 (999) 000-00-00</p>
-        <p style="margin-top:10px">🕐 Ежедневно 8:00 — 22:00</p>
+    <section class="contact-section">
+        <h2 style="margin-bottom:25px">Готовы к съёмке?</h2>
+        <a href="#" class="contact-btn">Связаться со мной</a>
     </section>
 </body>
 </html>
